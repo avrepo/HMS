@@ -1,0 +1,282 @@
+create table login (username varchar2(20), password varchar2(20));
+insert into login values('hotel','hotel');
+drop table customer;
+
+create table customer(
+order_date date,
+order_id varchar2(20) primary key,
+name varchar2(20),
+place varchar2(20),
+country varchar2(20),
+zip varchar2(20),
+phone varchar2(20),
+fax varchar2(20),
+email varchar2(20),
+purpose varchar2(20),
+category varchar2(20),
+attendees number,
+eventname varchar2(20),
+particulars varchar2(20),
+function_date date,
+payment_mode varchar2(20),
+venue varchar2(20),
+time varchar2(20)
+)
+
+drop table venue_details;
+create table venue_details
+(
+venue_code varchar2(20) primary key,
+name  varchar2(20),
+capacity varchar2(20),
+area varchar2(20),
+special_features varchar2(20),
+description varchar2(50)
+);
+
+insert into venue_details values('v1','vedika','200','2000sqft','buffy','sufficient for birth day parties');
+insert into venue_details values('v2','nivedika','300','3000sqft','buffy','sufficient for marriage day parties');
+
+create table  venue_time_slot_details
+(
+venue_code varchar2(20) references venue_details(venue_code),
+slot_code varchar2(20) references slot (slot_code)
+);
+
+insert into venue_time_slot_details values('v1','m');
+insert into venue_time_slot_details values('v1','e');
+insert into venue_time_slot_details values('v2','m');
+insert into venue_time_slot_details values('v2','e');
+
+create table slot
+(
+slot_code varchar2(20) primary key,
+slot varchar2(20)
+);
+
+insert into slot values('m','09.00-17.00');
+insert into slot values('e','18.00-24.00');
+
+
+create table custom_food_details
+(
+order_number varchar2(20),
+soup varchar2(50),
+salad varchar2(50),
+roti varchar2(50),
+rice varchar2(50),
+curry varchar2(50),
+curd varchar2(50),
+desert varchar2(50),
+soup_messure  varchar2(20),
+salad_messure  varchar2(20),
+roti_messure  varchar2(20),
+rice_messure  varchar2(20),
+curry_messure  varchar2(20),
+curd_messure  varchar2(20),
+desert_messure  varchar2(20),
+soup_price number  ,
+salad_price number  ,
+roti_price number  ,
+rice_price number  ,
+curry_price number  ,
+curd_price number  ,
+desert_price number  ,
+soup_serve varchar2(20),
+salad_serve varchar2(20),
+roti_serve varchar2(20),
+rice_serve varchar2(20),
+curry_serve varchar2(20),
+curd_serve varchar2(20),
+desert_serve varchar2(20),
+soup_quantity  number,
+salad_quantity  number,
+roti_quantity  number,
+rice_quantity  number,
+curry_quantity  number,
+curd_quantity  number,
+desert_quantity  number,
+total_amount number
+);
+
+drop  table package_food_details;
+create table package_food_details
+(
+order_id varchar2(20) references customer(order_id),
+price_per_head number,
+soup varchar2(50),
+salad varchar2(50),
+roti varchar2(50),
+rice varchar2(50),
+curry varchar2(50),
+curd varchar2(50),
+desert varchar2(50),
+total_amount number
+);
+
+create table package_price
+(
+price number
+);
+
+insert into package_price values(250);
+
+
+
+
+
+drop table soups;
+create table soups
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into soups values('sweet corn chicken soup',120,'kilograms');
+insert into soups  values('sweet corn  motton soup',120,'kilograms');
+
+create table salads
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into salads  values('alu chat',20,'kilograms');
+insert into salads  values('green salad',30,'kilograms');
+insert into salads  values('manchori salad ',120,'kilograms');
+insert into salads  values('chilli salad',60,'kilograms');
+
+
+create table roti
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into roti  values('kulcha',20,'kilograms');
+insert into roti  values('andhra',70,'kilograms');
+
+create table rice
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into rice  values('plain',70,'kilograms');
+insert into rice  values('basmathi',170,'kilograms');
+
+create table curries
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into curries  values('alu capsicum',70,'kilograms');
+insert into curries  values('alu muttar',70,'kilograms');
+insert into curries  values('mutton fry',70,'kilograms');
+insert into curries  values('chicken fry',70,'kilograms');
+insert into curries  values('fish curry',70,'kilograms');
+
+create table dessert
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into dessert  values('gazar halwa',120,'kilograms');
+insert into dessert  values('andhra halwa',120,'kilograms');
+
+create table curd
+(
+name varchar2(50),
+price number,
+measuring  varchar2(20)
+);
+
+insert into curd   values('plain curd',120,'kilograms');
+insert into dessert  values('mixed raitha',150,'kilograms');
+
+drop table room_customer;
+
+create table room_customer(
+booking_date date,
+name varchar2(50),
+place varchar2(50),
+country varchar2(50),
+zip varchar2(50),
+phone varchar2(50),
+fax varchar2(50),
+email varchar2(50),
+room_type varchar2(50),
+room_number varchar2(50),
+no_persons number,
+CONSTRAINT room_pk PRIMARY KEY  (name, room_number)
+);
+
+
+create table room_types
+(
+room_type varchar2(50) primary key,
+rent number,
+no_of_rooms number
+);
+
+insert into room_types values('Standard',200,12);
+insert into room_types values('Deluxe',300,24);
+insert into room_types values('Executive',500,9);
+insert into room_types values('Suite',1000,5);
+
+create table room
+(
+room_type varchar2(50) references room_types(room_type),
+room_number varchar2(20) unique
+status varchar2(20);
+);
+
+insert into room values('Standard','101','empty');
+insert into room values('Standard','102','empty');
+insert into room values('Standard','103','empty');
+insert into room values('Standard','104','empty');
+insert into room values('Standard','105','empty');
+insert into room values('Standard','106','filled');
+
+insert into room values('Deluxe','201','empty');
+insert into room values('Deluxe','202','empty');
+insert into room values('Deluxe','203','empty');
+insert into room values('Deluxe','204','empty');
+insert into room values('Deluxe','205','empty');
+insert into room values('Deluxe','206','filled');
+
+insert into room values('Executive','301','empty');
+insert into room values('Executive','302','empty');
+insert into room values('Executive','303','empty');
+insert into room values('Executive','304','empty');
+insert into room values('Executive','305','empty');
+
+insert into room values('Suite','401','empty');
+insert into room values('Suite','402','empty');
+insert into room values('Suite','403','empty');
+insert into room values('Suite','404','empty');
+insert into room values('Suite','405','empty');
+
+create table room_details
+(
+name varchar2(50),
+room_number varchar2(50),
+in_date date,
+intime varchar2(20),
+out_date date,
+outtime varchar2(20),
+status varchar2(20),
+rent number,
+CONSTRAINT room_fk FOREIGN KEY (Name, room_number)  REFERENCES room_customer(name, room_number)
+);
+
+
+

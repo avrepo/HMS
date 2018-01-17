@@ -1,0 +1,18 @@
+a:hover {
+	height: auto;
+	width: auto;
+	background-color: #00FFFF;
+
+}
+.bgcolor{	background-color: #FFFFFF;}
+.border{ BORDER : 1px;BORDER-COLOR:#33CCFF;BORDER-STYLE:SOLID;color:#336699;}
+.cbutton {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-variant: small-caps;
+	color:#778CA4;
+	background-color: #FFFFFF;
+	font-weight: bold;
+	}

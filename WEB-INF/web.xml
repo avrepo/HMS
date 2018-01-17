@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+<servlet>
+	<servlet-name>Login</servlet-name>
+	<servlet-class>pack.LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Login</servlet-name>
+	<url-pattern>/login_process</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>FoodSelect</servlet-name>
+	<servlet-class>pack.FoodSelectServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>FoodSelect</servlet-name>
+	<url-pattern>/FoodSelect</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>RegProcess</servlet-name>
+	<servlet-class>pack.RegProcessServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RegProcess</servlet-name>
+	<url-pattern>/RegProcess</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>BookingProcess</servlet-name>
+	<servlet-class>pack.BookingProcessServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>BookingProcess</servlet-name>
+	<url-pattern>/BookingProcess</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>VenueProcess</servlet-name>
+	<servlet-class>pack.VenueProcessServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>VenueProcess</servlet-name>
+	<url-pattern>/VenueProcess</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>PackageProcess</servlet-name>
+	<servlet-class>pack.PackageProcessServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>PackageProcess</servlet-name>
+	<url-pattern>/PackageProcess</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>CustomProcess</servlet-name>
+	<servlet-class>pack.CustomProcessServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>CustomProcess</servlet-name>
+	<url-pattern>/CustomProcessServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>RoomBook</servlet-name>
+	<servlet-class>pack.RoomBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RoomBook</servlet-name>
+	<url-pattern>/RoomBook</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>RoomProcess</servlet-name>
+	<servlet-class>pack.RoomProcessServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RoomProcess</servlet-name>
+	<url-pattern>/RoomProcess</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ClosingRoom</servlet-name>
+	<servlet-class>pack.ClosingRoomServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ClosingRoom</servlet-name>
+	<url-pattern>/ClosingRoom</url-pattern>
+</servlet-mapping>
+
+<welcome-file-list>
+<welcome-file>Login.htm</welcome-file>
+</welcome-file-list>
+</web-app>
